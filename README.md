@@ -4,16 +4,20 @@ Common docker image for building software reverse engineering (SRE) framework [G
 
 # Using
 
-Create an image and compile Ghidra for the first time:
+Create a docker image:
 
 ```
-git clone https://github.com/dukebarman/ghidra-builder
-cd ghidra-builder
-docker build -t="dukebarman/ghidra-builder" .
+sudo docker-tpl/build
 ```
 
-At the next time, update from git, compile new release and copy to current host directory (it mounts current directory as `/opt` for image): 
+Run the build script from the working directory:
 
 ```
-docker run -v `pwd`:/opt dukebarman/ghidra-builder /bin/bash -c 'cd /root/git/ghidra && git pull && gradle yajswDevUnpack && gradle buildGhidra && cp /root/git/ghidra/build/dist/*.zip /opt'
+cd workdir
+sudo ../docker-tpl/run buildme.sh
 ```
+
+# Changes from Duke's version
+1. Image builder and runner are separate scripts
+2. Ghidra source code moved outside of docker image
+3. Ghidra builder is a script outside of Dockerfile
