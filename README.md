@@ -14,7 +14,7 @@ Run the build script from the working directory:
 
 ```
 cd workdir
-sudo ../docker-tpl/run buildme.sh
+sudo ../docker-tpl/run ./buildme.sh
 ```
 
 # Changes from Duke's version
