@@ -1,19 +1,32 @@
 # About
 
-Common docker image for building software reverse engineering (SRE) framework [Ghidra](https://www.ghidra-sre.org/) from github's source.
+Common docker image for building software reverse engineering (SRE) framework [Ghidra](https://www.ghidra-sre.org/) from Github's source.
 
 # Using
 
-Create an image and compile Ghidra for the first time:
+Create a docker image:
 
 ```
-git clone https://github.com/dukebarman/ghidra-builder
-cd ghidra-builder
-docker build -t="dukebarman/ghidra-builder" .
+sudo docker-tpl/build
 ```
 
-At the next time, update from git, compile new release and copy to current host directory (it mounts current directory as `/opt` for image): 
+Run the build script from the working directory:
 
 ```
-docker run -v `pwd`:/opt dukebarman/ghidra-builder /bin/bash -c 'cd /root/git/ghidra && git pull && gradle yajswDevUnpack && gradle buildGhidra && cp /root/git/ghidra/build/dist/*.zip /opt'
+cd workdir
+sudo ../docker-tpl/run ./build_ghidra.sh
+```
+
+It will clone a ghidra repository to the current directory and copy build to `out` dir:
+
+```
+ls    
+build_ghidra.sh  ghidra out
+```
+
+At the next time, update this ghidra repo, checkout needed commit or patch:
+
+```
+cd workdir
+git pull
 ```
