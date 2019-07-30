@@ -2,6 +2,6 @@
 set -ex
 
 start_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-image=pandasauce/ghidra-builder
+image=dukebarman/ghidra-builder
 
 docker build --pull -t $image -f ${start_dir}/Dockerfile ${start_dir}
