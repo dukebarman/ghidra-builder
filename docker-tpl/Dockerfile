@@ -18,7 +18,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
         make \
         software-properties-common \
         unzip \
-        wget
+        wget \
+		xvfb
 
 RUN DEBIAN_FRONTEND=noninteractive add-apt-repository ppa:openjdk-r/ppa -y
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
@@ -50,22 +51,3 @@ allprojects {\n\
 }\n\
 " > $HOME/.gradle/init.d/repos.gradle
 
-RUN mkdir $HOME/flatRepo
-WORKDIR /tmp
-RUN curl -OL https://github.com/pxb1988/dex2jar/releases/download/2.0/dex-tools-2.0.zip && \
-    unzip dex-tools-2.0.zip && \
-    cp dex2jar-2.0/lib/dex-*.jar $HOME/flatRepo/
-
-RUN curl -OL https://sourceforge.net/projects/catacombae/files/HFSExplorer/0.21/hfsexplorer-0_21-bin.zip && \
-    mkdir hfsx
-
-RUN curl -OL https://sourceforge.net/projects/yajsw/files/yajsw/yajsw-stable-12.12/yajsw-stable-12.12.zip && \
-mkdir -p $HOME/ghidra.bin/Ghidra/Features/GhidraServer/ && \
-cp /tmp/yajsw-stable-12.12.zip $HOME/ghidra.bin/Ghidra/Features/GhidraServer/
-
-WORKDIR /tmp/hfsx
-RUN unzip ../hfsexplorer-0_21-bin.zip && \
-    cp lib/csframework.jar lib/hfsx_dmglib.jar lib/hfsx.jar lib/iharder-base64.jar $HOME/flatRepo/
-
-WORKDIR /home/dockerbot/flatRepo 
-RUN curl -OL https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/android4me/AXMLPrinter2.jar

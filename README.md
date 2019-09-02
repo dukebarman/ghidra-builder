@@ -27,6 +27,22 @@ build_ghidra.sh  ghidra out
 At the next time, update this ghidra repo, checkout needed commit or patch:
 
 ```
-cd workdir
+cd workdir/ghidra
 git pull
 ```
+
+After building a few files don't have executable flag:
+
+```
+chmod +x ./GPL/DemanglerGnu/os/linux64/demangler_gnu
+chmod +x ./GPL/CabExtract/os/linux64/cabextract
+chmod +x ./Ghidra/Features/Decompiler/os/linux64/decompile
+chmod +x ./support/launch.sh
+chmod +x ghidraRun
+```
+
+Or copy and use `set_exec_flag.sh` script to unzipped ghidra folder.
+
+# Testing
+
+The Developers've added scripts for testing so you may uncomment `Tests` section in `build_ghidra.sh`.
