@@ -4,7 +4,7 @@ Common docker image for building software reverse engineering (SRE) framework [G
 
 # Using
 
-Create a docker image:
+Create a docker image (if your user is in docker group, you may execute commands without sudo):
 
 ```
 sudo docker-tpl/build
