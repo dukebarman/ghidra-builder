@@ -4,6 +4,13 @@ Common docker image for building software reverse engineering (SRE) framework [G
 
 # Using
 
+Clone the repository:
+
+```
+git clone https://github.com/dukebarman/ghidra-builder
+cd ghidra-builder
+```
+
 Create a docker image (if your user is in docker group, you may execute commands without sudo):
 
 ```
