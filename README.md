@@ -1,6 +1,6 @@
 # About
 
-Common docker image for building software reverse engineering (SRE) framework [Ghidra](https://www.ghidra-sre.org/) from Github's source.
+Common docker image for building software reverse engineering (SRE) framework [Ghidra](https://www.ghidra-sre.org/) from Github's or private fork's source.
 
 # Using
 
