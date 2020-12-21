@@ -38,6 +38,14 @@ cd workdir/ghidra
 git pull
 ```
 
+And for testing other branches, for example, with new debugger feature, you may make `checkout`:
+
+```
+cd workdir/ghidra # if you didn't make it earlier
+git checkout debugger
+```
+
+
 After building a few files don't have executable flag:
 
 ```
