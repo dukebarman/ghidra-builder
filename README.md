@@ -45,8 +45,22 @@ cd workdir/ghidra # if you didn't make it earlier
 git checkout debugger
 ```
 
+# Errors
 
-After building a few files don't have executable flag:
+## Building process doesn't finish properly with gradle or jdk versions errors
+
+In `docker-tpl/Dockerfile` you can find versions for gradle and jdk:
+
+```
+ARG gradle_version=7.3
+ARG jdk_version=17
+```
+
+You can change manually with your favorite editor or run docker building with `--build-arg` 
+
+## Some files without executable flag
+
+After building a few files sometimes don't have executable flag:
 
 ```
 chmod +x ./GPL/DemanglerGnu/os/linux64/demangler_gnu
